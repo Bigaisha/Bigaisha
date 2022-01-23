@@ -38,12 +38,9 @@ public class PracticeFormWithFaker {
                     .typeLastName(lastName)
                     .typeEmail(email)
                     .typePhoneNumber(phoneNumber)
-                    .typeAddress(currentAddress)
-                    .selectGender("Female");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("November");
-        $(".react-datepicker__year-select").selectOption("1991");
-        $("[aria-label$='November 5th, 1991']").click();
+                    .typeAddress(currentAddress);
+            registrationPage.setBirthDate("05", "November", "1991");
+        $("#genterWrapper").$(byText("Female")).click();
         $("#subjectsInput").setValue("Eng");
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
@@ -54,9 +51,9 @@ public class PracticeFormWithFaker {
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
+        registrationPage.checkResultsValue("Student Name", firstName +" "+ lastName);
         $(".table").shouldHave(
-                text(firstName +" "+ lastName), text(email),
-                text("Female"), text(phoneNumber),
+                text(email), text("Female"), text(phoneNumber),
                 text("05 November,1991"), text("English"),
                 text("Reading"), text("1.png"),
                 text(currentAddress), text("NCR Delhi")

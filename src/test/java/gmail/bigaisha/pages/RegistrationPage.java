@@ -56,13 +56,6 @@ public class RegistrationPage {
         addressInput.setValue(value);
         return this;
     }
-    public RegistrationPage selectGender (String value){
-        genderInput.setValue(value);
-        return this;
-    }
-
-    .$(byText("Female")).click();
-
 
     public RegistrationPage setBirthDate(String day, String month, String year){
         calendarComponent.setDate(day, month, year);
