@@ -1,4 +1,4 @@
-package qa;
+package gmail.bigaisha.qa;
 
 import org.junit.jupiter.api.Test;
 

@@ -12,10 +12,14 @@ public class RegistrationPage {
 
     SelenideElement
             firstNameInput = $("#firstName"),
-            thirdNameInput = $("#lastName"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            numberInput = $("#userNumber"),
+            addressInput = $("#currentAddress"),
+            genderInput = $("#genterWrapper"),
             resultsTable =  $(".table-responsive");
 
-    public CalendarComponent calendarComponent = new СalendarComponent();
+    public CalendarComponent calendarComponent = new CalendarComponent();
 
 //    $("#firstName").setValue("Bigaisha");
 //    $("#lastName").setValue("Shalabayeva");
@@ -30,15 +34,39 @@ public class RegistrationPage {
 
     public RegistrationPage typeFirstName(String value){
         firstNameInput.setValue(value);
-
         return this;
-//
-//    public void typeFirstName(String value){
+//      public void typeFirstName(String value){
 //        firstNameInput.setValue(value);
-//    }
+    }
 
-    public RegistrationPage typeThirdName(String value){
-        thirdNameInput.setValue(value);
+    public RegistrationPage typeLastName(String value){
+        lastNameInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage typeEmail(String value){
+        emailInput.setValue(value);
+        return this;
+    }
+    public RegistrationPage typePhoneNumber(String value){
+        numberInput.setValue(value);
+        return this;
+    }
+    public RegistrationPage typeAddress (String value){
+        addressInput.setValue(value);
+        return this;
+    }
+    public RegistrationPage selectGender (String value){
+        genderInput.setValue(value);
+        return this;
+    }
+
+    .$(byText("Female")).click();
+
+
+    public RegistrationPage setBirthDate(String day, String month, String year){
+        calendarComponent.setDate(day, month, year);
+
         return this;
     }
 
