@@ -25,6 +25,14 @@ public class PracticeFormWithFaker {
 //    String currentAddress = faker.lebowski().quote();
     String currentAddress = faker.gameOfThrones().house();
 
+    static String genter = "Female";
+    static String subject = "English";
+    static String hobby = "Reading";
+    static String fileUrl = "img/1.png";
+    static String fileName = "1.png";
+    static String state = "NCR";
+    static String city = "Delhi";
+
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -37,27 +45,26 @@ public class PracticeFormWithFaker {
                     .typeFirstName(firstName)
                     .typeLastName(lastName)
                     .typeEmail(email)
+                    .selectGenter(genter)
                     .typePhoneNumber(phoneNumber)
-                    .typeAddress(currentAddress);
-            registrationPage.setBirthDate("05", "November", "1991");
-        $("#genterWrapper").$(byText("Female")).click();
-        $("#subjectsInput").setValue("Eng");
-        $("#subjectsWrapper").$(byText("English")).click();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
-        $("#state").scrollTo().click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
-
-        registrationPage.checkResultsValue("Student Name", firstName +" "+ lastName);
-        $(".table").shouldHave(
-                text(email), text("Female"), text(phoneNumber),
-                text("05 November,1991"), text("English"),
-                text("Reading"), text("1.png"),
-                text(currentAddress), text("NCR Delhi")
-        );
+                    .typeAddress(currentAddress)
+                    .setBirthDate("05", "November", "1991")
+                    .selectSubject("Eng", subject)
+                    .selectHobbies(hobby)
+                    .uploadFiles(fileUrl)
+                    .selectState(state)
+                    .selectCity(city)
+                    .clickSubmit();
+           registrationPage.checkResultsValue("Student Name", firstName +" "+ lastName)
+                            .checkResultsValue("Student Email", email)
+                            .checkResultsValue("Gender", genter)
+                            .checkResultsValue("Mobile", phoneNumber)
+                            .checkResultsValue("Date of Birth", "05 November,1991")
+                            .checkResultsValue("Subjects", subject)
+                            .checkResultsValue("Hobbies", hobby)
+                            .checkResultsValue("Picture", fileName)
+                            .checkResultsValue("Address", currentAddress)
+                            .checkResultsValue("State and City", state + " " + city);
     }
 }
 
