@@ -1,4 +1,4 @@
-package tests;
+package gmail.bigaisha.qa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeForm {
+public class PracticeFormWithComments {
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";

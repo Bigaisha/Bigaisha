@@ -1,35 +1,30 @@
 package gmail.bigaisha.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import gmail.bigaisha.pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static gmail.bigaisha.tests.TestData.email;
 
-public class PracticeFormWithPageObjects {
-
-    RegistrationPage registrationPage = new RegistrationPage();
-
-    @BeforeAll
-    static void setUp() {
-        Configuration.baseUrl = "https://demoqa.com";
-    }
-
+public class PracticeFormWithTestBase extends TestBase {
     @Test
-    void fillFormWithDSL() {
-        registrationPage
-                        .openPage()
-                        .typeFirstName("Bigaisha")
-                        .typeLastName("Shalabayeva");
-        $("#userEmail").setValue("bigaisha@gmail.com");
+    void practice() {
+
+        open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        $("[alt=\"adplus-dvertising\"]").click();
+        $("#firstName").setValue("Bigaisha");
+        $("#lastName").setValue("Shalabayeva");
+        $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("7023998900");
         $("#currentAddress").setValue("Samal-1-19-3");
-        registrationPage.setBirthDate("05", "November", "1991");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("November");
+        $(".react-datepicker__year-select").selectOption("1991");
+        $("[aria-label$='November 5th, 1991']").click();
         $("#subjectsInput").setValue("Eng");
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
@@ -40,15 +35,14 @@ public class PracticeFormWithPageObjects {
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
-        registrationPage.checkResultsValue("Student Name", "Bigaisha Shalabayeva");
         $(".table").shouldHave(
-                text("Bigaisha Shalabayeva"), text("bigaisha@gmail.com"),
+                text("Bigaisha Shalabayeva"), text(email),
                 text("Female"), text("7023998900"),
                 text("05 November,1991"), text("English"),
                 text("Reading"), text("1.png"),
-                text("Samal-1-19-3"), text("NCR Delhi")
+                text("Samal-1-19-3"), text("NCR Delhi"),
+                text("7023998900"), text("7023998900")
         );
-
     }
 }
 

@@ -1,4 +1,4 @@
-package tests;
+package gmail.bigaisha.tests;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
