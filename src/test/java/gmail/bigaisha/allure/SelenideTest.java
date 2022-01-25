@@ -1,6 +1,10 @@
 package gmail.bigaisha.allure;
 
 import com.codeborne.selenide.Condition;
+
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -12,6 +16,7 @@ import static org.openqa.selenium.By.partialLinkText;
 public class SelenideTest {
     @Test
     public void testIssueSearch() {
+        SelenideLogger.addListener("allur", new AllureSelenide());
 
         open("https://github.com/");
         $(".header-search-input").click();
@@ -20,11 +25,5 @@ public class SelenideTest {
         $(linkText("eroshenkoam/allure-example")).click();
         $(partialLinkText("Issues")).click();
         $(withText("#68")).should(Condition.visible);
-
-
-
-
     }
-
-
 }
