@@ -39,7 +39,6 @@ public class FilesHomework {
                             new String[]{"dinner;barbeque"}
                     );
             }
-
         ZipEntry xlsEntry = zipFile.getEntry("staff.xlsx");
         try (InputStream stream = zipFile.getInputStream(xlsEntry)) {
             XLS parsed = new XLS(stream);
