@@ -40,12 +40,12 @@ public class FilesHomework {
                     );
             }
 
-//        ZipEntry xlsEntry = zipFile.getEntry("staff.xlsx");
-//        try (InputStream stream = zipFile.getInputStream(xlsEntry)) {
-//            XLS parsed = new XLS(stream);
-//            assertThat(parsed.excel.getSheetAt(0).getRow(7).getCell(1).getStringCellValue()).
-//                    isEqualTo("14");
-//        }
+        ZipEntry xlsEntry = zipFile.getEntry("staff.xlsx");
+        try (InputStream stream = zipFile.getInputStream(xlsEntry)) {
+            XLS parsed = new XLS(stream);
+            assertThat(parsed.excel.getSheetAt(0).getRow(7).getCell(1).getStringCellValue()).
+                    isEqualTo("14");
+        }
     }
 }
 
