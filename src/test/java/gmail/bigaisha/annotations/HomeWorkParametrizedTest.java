@@ -36,5 +36,6 @@ public class HomeWorkParametrizedTest {
         $("#btnLogin").click();
         $("#sidebarMenu").$(byText("Все полисы")).pressEnter();
         $(".btn-toolbar").shouldHave(Condition.text("Все полисы"));
+        System.out.println(userName + " is Admin");
     }
 }
