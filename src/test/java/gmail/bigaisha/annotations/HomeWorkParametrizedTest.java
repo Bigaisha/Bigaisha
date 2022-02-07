@@ -24,7 +24,6 @@ public class HomeWorkParametrizedTest {
 
     @BeforeEach
     void openAgentPolis() {
-        Selenide.clearBrowserCookies();
         open("https://agent-polis.kz/login");
     }
 
