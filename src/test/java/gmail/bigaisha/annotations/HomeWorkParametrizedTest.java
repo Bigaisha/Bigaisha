@@ -3,6 +3,10 @@ package gmail.bigaisha.annotations;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -20,7 +24,6 @@ public class HomeWorkParametrizedTest {
 
     @BeforeEach
     void openAgentPolis() {
-        Selenide.clearBrowserCookies();
         open("https://agent-polis.kz/login");
     }
 
@@ -29,6 +32,12 @@ public class HomeWorkParametrizedTest {
             "7023998900, 1234567"
     })
 
+    @Owner("Bigaisha")
+    @Feature("Role Test")
+    @Stories({
+            @Story("Авторизоваться на сайте Agent-Polis"),
+            @Story("Проверить роль юзера в зависимости от функционала")
+    })
     @ParameterizedTest(name = "Test for users in Agent Polis")
     public void agentPolisTest(String userName, String password) {
         $("#username").setValue(userName);
@@ -37,5 +46,10 @@ public class HomeWorkParametrizedTest {
         $("#sidebarMenu").$(byText("Все полисы")).pressEnter();
         $(".btn-toolbar").shouldHave(Condition.text("Все полисы"));
         System.out.println(userName + " is Admin");
+    }
+
+    @AfterEach
+    void closeBrowser() {
+        Selenide.closeWebDriver();
     }
 }
