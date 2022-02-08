@@ -32,7 +32,7 @@ public class HomeWorkParametrizedTest {
             "7023998900, 1234567"
     })
 
-    @Owner("Bigaisha")
+    @Owner("Bigaisha Shalabayeva")
     @Feature("Role Test")
     @Stories({
             @Story("Тест для определения роли юзера на сайте agent-polis"),
