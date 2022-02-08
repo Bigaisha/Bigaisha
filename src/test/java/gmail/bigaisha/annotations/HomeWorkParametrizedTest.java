@@ -35,6 +35,7 @@ public class HomeWorkParametrizedTest {
     @Owner("Bigaisha")
     @Feature("Role Test")
     @Stories({
+            @Story("Тест для определения роли юзера"),
             @Story("Авторизоваться на сайте Agent-Polis"),
             @Story("Проверить роль юзера в зависимости от функционала")
     })
