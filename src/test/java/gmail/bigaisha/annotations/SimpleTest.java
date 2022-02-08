@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 public class SimpleTest {
 
     @Test
-    @DisplayName("Test asserts 3 < 1")
-    void test() {
-        Assertions.assertTrue(3 < 1);
+    @DisplayName("Test asserts 3 < 0")
+    void test0() {
+        Assertions.assertTrue(3 < 0);
     }
     @Test
     @DisplayName("Test asserts 3 > 1")
@@ -18,13 +18,8 @@ public class SimpleTest {
         Assertions.assertTrue(3 > 1);
     }
     @Test
-    @DisplayName("Test asserts 3 > 0")
-    void test3() {
-        Assertions.assertTrue(3 > 0);
-    }
-    @Test
-    @DisplayName("Test asserts 4 > 0")
-    void test4() {
-        Assertions.assertTrue(4 > 0);
+    @DisplayName("Test asserts 3 > 2")
+    void test2() {
+        Assertions.assertTrue(3 > 2);
     }
 }
