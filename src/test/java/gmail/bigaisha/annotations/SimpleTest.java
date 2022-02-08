@@ -18,8 +18,13 @@ public class SimpleTest {
         Assertions.assertTrue(3 > 1);
     }
     @Test
-    @DisplayName("Test asserts 3 > 2")
+    @DisplayName("Test asserts 3 > 0")
     void test3() {
         Assertions.assertTrue(3 > 0);
+    }
+    @Test
+    @DisplayName("Test asserts 4 > 0")
+    void test4() {
+        Assertions.assertTrue(4 > 0);
     }
 }
