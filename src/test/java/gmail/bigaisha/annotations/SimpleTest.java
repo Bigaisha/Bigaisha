@@ -8,13 +8,18 @@ import org.junit.jupiter.api.Test;
 public class SimpleTest {
 
     @Test
-    @DisplayName("Test asserts 3 < 2")
+    @DisplayName("Test asserts 3 < 1")
     void test() {
-        Assertions.assertTrue(3 < 2);
+        Assertions.assertTrue(3 < 1);
+    }
+    @Test
+    @DisplayName("Test asserts 3 > 1")
+    void test1() {
+        Assertions.assertTrue(3 > 1);
     }
     @Test
     @DisplayName("Test asserts 3 > 2")
-    void test1() {
-        Assertions.assertTrue(3 > 2);
+    void test3() {
+        Assertions.assertTrue(3 > 0);
     }
 }
