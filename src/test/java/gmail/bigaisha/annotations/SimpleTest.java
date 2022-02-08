@@ -8,17 +8,17 @@ import org.junit.jupiter.api.Test;
 public class SimpleTest {
     @Test
     @DisplayName("Test asserts 3 < 0")
-    void test0() {
+    void testZero() {
         Assertions.assertTrue(3 < 0);
     }
     @Test
     @DisplayName("Test asserts 3 > 1")
-    void test1() {
+    void testOne() {
         Assertions.assertTrue(3 > 1);
     }
     @Test
     @DisplayName("Test asserts 3 > 2")
-    void test2() {
+    void testTwo() {
         Assertions.assertTrue(3 > 2);
     }
 }
