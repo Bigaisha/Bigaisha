@@ -21,17 +21,14 @@ public class HomeWorkParametrizedTest {
         Configuration.browserSize = "1600x800";
         Configuration.browser = "Chrome";
     }
-
     @BeforeEach
     void openAgentPolis() {
         open("https://agent-polis.kz/login");
     }
-
     @CsvSource(value = {
             "7777768435, 1234567",
             "7023998900, 1234567"
     })
-
     @Owner("Bigaisha Shalabayeva")
     @Feature("Role Test")
     @Stories({
@@ -48,7 +45,6 @@ public class HomeWorkParametrizedTest {
         $(".btn-toolbar").shouldHave(Condition.text("Все полисы"));
         System.out.println(userName + " is Admin");
     }
-
     @AfterEach
     void closeBrowser() {
         Selenide.closeWebDriver();
