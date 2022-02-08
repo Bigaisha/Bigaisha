@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("Class asserting 3 N 2")
 public class SimpleTest {
-
     @Test
     @DisplayName("Test asserts 3 < 0")
     void test0() {
